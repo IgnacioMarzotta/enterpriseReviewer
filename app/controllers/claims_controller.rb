@@ -4,13 +4,11 @@ class ClaimsController < ApplicationController
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all.order_by(created_at: 'desc')
   end
 
   # GET /claims/1
   # GET /claims/1.json
   def show
-    @claims = Claim.all.order_by(created_at: 'desc')
   end
 
   # GET /claims/new
