@@ -17,4 +17,6 @@ end
     User.create(email: Faker::Internet.email, password: 123456, password_confirmation: 123456)
 end
 
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? 
+
 User.create(email: "a@gmail.com", password: 123456, password_confirmation: 123456)

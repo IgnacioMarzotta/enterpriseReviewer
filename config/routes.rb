@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   post 'companies/:company_id', to: 'claims#create', as: 'claim_create'
   delete 'claims/:id', to: 'claims#destroy', as: 'claim_delete'
   devise_for :users
