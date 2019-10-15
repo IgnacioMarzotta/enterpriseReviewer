@@ -17,6 +17,9 @@ end
     User.create(email: Faker::Internet.email, password: 123456, password_confirmation: 123456)
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? 
+250.times do
+    Claim.create(user_id: User.all.sample.id, company_id: Company.all.sample.id, content: 'This is a claim against a company, because i am very angry and I like potatoes')
+end
 
-User.create(email: "a@gmail.com", password: 123456, password_confirmation: 123456)
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development? 
