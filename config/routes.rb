@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post 'companies/:company_id', to: 'claims#create', as: 'claim_create'
+  delete 'claims/:id', to: 'claims#destroy', as: 'claim_delete'
   devise_for :users
   resources :companies
   root to: 'companies#index'

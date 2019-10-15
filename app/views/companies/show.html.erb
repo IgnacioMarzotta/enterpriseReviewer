@@ -1,4 +1,26 @@
-<%= @company.name%>
+<div class="container border border-dark", style="height:100vh;">
+    <h1><%= @company.name%></h1>
+    <%= link_to 'Back', companies_path %>
+    <%= form_with(model:@claim) do |f| %>
+        <div class="card-header d-flex justify-content-center">
+            <b><%= f.label :content, 'Reclamos' %></b>
+        </div>
+        <div class="card-body">
+            <% @company.claims.each do |claim| %>
+                <% if current_user.id == claim.user_id %>
+                    <%= link_to 'X', claim_delete_path(claim), method: :delete, class: 'badge badge-danger', data: { confirm: '¿Estás seguro que deseas eliminar el reclamo?', remote: true }  %>
+                    <%= claim.user.email %>:      
+                    <br><%= claim.content %>
+                <% else %>
+                    <%= claim.user.email %>:      
+                    <%= claim.content %>
+                <% end %>
+                <hr>
+            <% end %>
+        <%= f.text_area :content, autoselect: true, class: 'col-sm-12 form-control d-flex justify-content-center', maxlength: 15000 %>
+        <br>
+        <%= f.submit 'Reclamar', class: 'btn btn-success btn d-flex justify-content-center' %>
+        </div>
+  <% end %>
 
-<br>
-<%= link_to 'Back', companies_path %>
+</div>
