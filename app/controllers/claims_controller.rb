@@ -25,11 +25,11 @@ class ClaimsController < ApplicationController
   # POST /claims.json
   def create
     @claim = Claim.create(company_id: params[:company_id], user_id: current_user.id, content: params[:content])
-
     respond_to do |format|
       if @claim.save
-        format.html { redirect_to @claim, notice: 'Claim was successfully created.' }
-        format.json { render :show, status: :created, location: @claim }
+        format.html { redirect_to companies_url, notice: 'Claim was successfully created.' }
+        format.json { render :show, status: :created, location: @company }
+        format.js { }
       else
         format.html { render :new }
         format.json { render json: @claim.errors, status: :unprocessable_entity }
@@ -56,8 +56,9 @@ class ClaimsController < ApplicationController
   def destroy
     @claim.destroy
     respond_to do |format|
-      format.html { redirect_to claims_url, notice: 'Claim was successfully destroyed.' }
+      format.html { redirect_to @company, notice: 'Claim was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { }
     end
   end
 

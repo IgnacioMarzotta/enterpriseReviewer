@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   delete 'claims/:id', to: 'claims#destroy', as: 'claim_delete'
   devise_for :users
   resources :companies
+  resources :claims
   root to: 'companies#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

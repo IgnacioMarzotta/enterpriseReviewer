@@ -1,0 +1,9 @@
+<tr id="claim_<%= claim.id%>">
+    <% if(claim.user.id == current_user.id)%>
+        <td><%= link_to 'X', claim_delete_path(claim), method: :delete, class: 'badge badge-danger', data: { confirm: '¿Estás seguro que deseas eliminar el reclamo?', remote: true }  %><%= claim.user.email %></td>
+        <td><%= claim.content %></td>
+    <% else %>
+        <td><%= claim.user.email %></td>
+        <td><%= claim.content %></td>
+    <% end %>
+</tr>

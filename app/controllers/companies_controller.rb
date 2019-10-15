@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
     @company = Company.new
+    @claims = Claim.all
   end
 
   # GET /companies/1

@@ -1,22 +1,9 @@
-<%= form_with(model: claim) do |form| %>
-  <% if claim.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(claim.errors.count, "error") %> prohibited this claim from being saved:</h2>
-
-      <ul>
-        <% claim.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: @claim) do |form| %>
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.text_area :content, autoselect: true, class: 'col-sm-12 form-control d-flex justify-content-center', maxlength: 15000 %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Reclamar", class: 'btn btn-success btn d-flex justify-content-center' %>
   </div>
 <% end %>
