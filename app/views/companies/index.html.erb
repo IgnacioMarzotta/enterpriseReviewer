@@ -1,4 +1,7 @@
 <p id="notice"><%= notice %></p>
+<br>
+<%= render 'form', company: @company %>
+<hr>
 
 <h1>Companies</h1>
 
@@ -21,7 +24,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Company', new_company_path %>
