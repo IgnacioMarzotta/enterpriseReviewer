@@ -31,6 +31,7 @@ class CompaniesController < ApplicationController
       if @company.save
         format.html { redirect_to @company, notice: 'Company was successfully created.' }
         format.json { render :show, status: :created, location: @company }
+        format.js { }
       else
         format.html { render :new }
         format.json { render json: @company.errors, status: :unprocessable_entity }
