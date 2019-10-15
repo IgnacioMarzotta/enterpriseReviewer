@@ -1,8 +1,11 @@
 <div class="container border border-dark">
-    <h1><%= @company.name%></h1>
-    <%= link_to 'Back', companies_path %>
+    <%= link_to 'Back', companies_path, class: 'btn btn-secondary float-right mx-3 mt-3' %>
+    <h1 class="card-header border border-secondary"><%= @company.name%></h1>
+    <br>
+    <br>
+    <h4>Post your own claim</h4>
     <%= render 'claims/form' %>
-    <hr>
+    <br>
     <table class="table">
         <thead>
             <tr>
